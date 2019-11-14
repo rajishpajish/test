@@ -3,7 +3,7 @@ import { Http, Response } from '@angular/http';
 
 import { Feedback } from '../shared/feedback';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { RestangularModule, Restangular } from 'ngx-restangular';
 
 @Injectable()

@@ -1,12 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Promotion } from '../shared/promotion';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { RestangularModule, Restangular } from 'ngx-restangular';
 
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/of';
+import { map } from "rxjs/operators"; 
+import { of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+
 
 @Injectable()
 export class PromotionService {

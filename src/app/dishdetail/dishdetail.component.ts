@@ -3,7 +3,7 @@ import { Params, ActivatedRoute } from '@angular/router';
 import { Location } from '@angular/common';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import 'rxjs/add/operator/switchMap';
+import {switchMap} from 'rxjs/operators';
 
 import { DishService } from '../services/dish.service';
 
@@ -64,10 +64,11 @@ export class DishDetailComponent implements OnInit {
   ngOnInit() {
 
     this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
-    this.route.params
-      .switchMap((params: Params) => { this.visibility = 'hidden'; return this.dishservice.getDish(+params['id']); }) // (+) converts string id to a number
-      .subscribe(dish => { this.dish = dish; this.dishcopy = dish; this.setPrevNext(dish.id); this.visibility = 'shown'; }, 
+    this.route.params.pipe(
+      switchMap((params: Params) => { this.visibility = 'hidden'; return this.dishservice.getDish(+params['id']); }) // (+) converts string id to a number
+      ).subscribe(dish => { this.dish = dish; this.dishcopy = dish; this.setPrevNext(dish.id); this.visibility = 'shown'; }, 
         errmess => this.errMess = <any>errmess);
+    
   }
 
   setPrevNext(dishId: number) {

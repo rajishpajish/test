@@ -5,12 +5,12 @@ import { Dish } from '../shared/dish';
 import { baseURL } from '../shared/baseurl';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 import { RestangularModule, Restangular } from 'ngx-restangular';
 
-import 'rxjs/add/operator/catch';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/observable/of';
+import { map } from "rxjs/operators"; 
+import { of } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Injectable()
 export class DishService {
@@ -27,13 +27,15 @@ export class DishService {
   }
 
   getFeaturedDish(): Observable<Dish> {
-    return this.restangular.all('dishes').getList({featured: true})
-      .map(dishes => dishes[0]);
+    return this.restangular.all('dishes').getList({featured: true}).pipe(
+      map(dishes => dishes[0])
+    );
   }
 
   getDishIds(): Observable<number[]> {
-    return this.getDishes()
-      .map(dishes => { return dishes.map(dish => dish.id) })
-      .catch(error => {return Observable.of(error);});
+    return this.getDishes().pipe(
+      map(dishes => {return dishes.map(dish => dish.id);} )
+      ,catchError(error => {return of(error);})
+    );
   }
 }

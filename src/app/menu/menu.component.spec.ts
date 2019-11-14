@@ -13,6 +13,7 @@ import { DishService } from '../services/dish.service';
 import { DISHES } from '../shared/dishes';
 import { baseURL } from '../shared/baseurl';
 import { Observable } from 'rxjs';
+import { of } from 'rxjs'
 
 import { MenuComponent } from './menu.component';
 
@@ -24,7 +25,7 @@ describe('MenuComponent', () => {
 
     let dishServiceStub = {
       getDishes: function(): Observable<Dish[]> {
-        return Observable.of(DISHES);
+        return of(DISHES);
       }
     };
 

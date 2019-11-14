@@ -38,7 +38,7 @@ export class FlowComponent implements AfterViewInit {
 
 
 
-  @ViewChild('exampleDiv') exampleDiv: ElementRef;
+  @ViewChild('exampleDiv' , {static: false}) exampleDiv: ElementRef;
 
 
 
