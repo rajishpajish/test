@@ -1,0 +1,130 @@
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px"
+dir="rtl">
+
+  <div fxFlex>
+    <div>
+      <h3>تماس با ما</h3>
+      <hr>
+    </div>
+  </div>
+
+  <div fxFlex>
+    <h3>اطلاعات تماس</h3> 
+    <div fxLayout="column" fxLayout.gt-sm="row">
+      <div fxFlex="50" fxFlexOffset="20px">
+        <h4>نشانی</h4>
+        <address>
+          ولنجک، دانشگاه شهید بهشتی<br>
+          مرکز رشد فناوری<br>
+          واحد 320<br>
+          <i class="fa fa-phone"></i>: 29903234 021<br>
+          <!-- <i class="fa fa-fax"></i>: <br> -->
+          <i class="fa fa-envelope"></i>: 
+            <a href="mailto:hooshbartar.co@gmail.com">hooshbartar.co@gmail.com</a>
+        </address>
+        <p></p>
+        <!--
+        <div>
+          <a mat-raised-button href="tel:+85212345678"><i class="fa fa-phone"></i> Call</a>
+          <a mat-raised-button><i class="fa fa-skype"></i> Skype</a>
+          <a mat-raised-button href="mailto:hooshbartar.co@gmail.com"><i class="fa fa-envelope-o"></i> Email</a>
+        </div>
+      -->
+      </div>
+      <div fxFlex="40">
+        <h4>محل شرکت روی نقشه</h4>
+      </div>
+    </div>
+  </div>
+
+  <div fxFlex fxFlexOffset="20px" class="form-size">
+    <h3>فرم ارتباط با ما</h3>
+
+    <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" [hidden]="feedback || spinnerVisibility" [@expand]>
+      <p>
+        <mat-form-field class="half-width"
+         dividerColor="{{(formErrors.firstname) ? 'warn' : 'primary'}}">
+          <input matInput formControlName="firstname" placeholder="نام" type="text" required>
+          <mat-hint>
+            <span [hidden]="!(formErrors.firstname)">
+                {{formErrors.firstname}}</span>
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field class="half-width" >
+          <input matInput formControlName="lastname" placeholder="نام خانوادگی" type="text" >
+          <mat-hint>
+            <span [hidden]="!(formErrors.lastname)">
+                {{formErrors.lastname}}</span>
+          </mat-hint>
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field class="half-width">
+          <input matInput formControlName="telnum" placeholder="شماره تلفن" type="tel" pattern="[0-9]*" >
+          <mat-hint>
+            <span [hidden]="!(formErrors.telnum)">
+                {{formErrors.telnum}}</span>
+          </mat-hint>
+        </mat-form-field>
+        <mat-form-field class="half-width"
+         dividerColor="{{(formErrors.email) ? 'warn' : 'primary'}}">
+          <input matInput formControlName="email" placeholder="ایمیل" type="email" email required>
+          <mat-hint>
+            <span [hidden]="!(formErrors.email)">
+                {{formErrors.email}}</span>
+          </mat-hint>
+        </mat-form-field>
+      </p>
+      <!--
+      <table class="form-size">
+        <td>
+        <mat-slide-toggle formControlName="agree">May we contact you?</mat-slide-toggle>
+        </td>
+        <td>
+        <mat-select placeholder="How?" formControlName="contacttype">
+          <mat-option *ngFor="let ctype of contactType" [value]="ctype">
+            {{ ctype }}
+          </mat-option>
+        </mat-select>
+        </td>
+        </table>
+      -->
+      <p>
+        <mat-form-field class="full-width">
+          <textarea matInput formControlName="message" placeholder="لطفا نظر، انتقاد یا پیشنهادات خود را با ما در میان" rows=12></textarea>
+        </mat-form-field>
+      </p>
+      <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="feedbackForm.invalid">ارسال</button>
+    </form>
+    <div [hidden]="!spinnerVisibility">
+        <h3>Submitting Form</h3>
+      <mat-spinner></mat-spinner>
+    </div>
+    <div *ngIf="feedback" [@expand]>
+      <h3>Your Submission</h3>
+      <p>
+        <span>First Name:&nbsp;{{ feedback.firstname }}</span>
+      </p>
+      <p>
+        <span>Last Name:&nbsp;{{ feedback.lastname }}</span>
+      </p>
+      <p>
+        <span>Tel. Number:&nbsp;{{ feedback.telnum }}</span>
+      </p>
+      <p>
+        <span>Email:&nbsp;{{ feedback.email }}</span>
+      </p>
+      <p>
+        <span>Contact You?:&nbsp;{{ feedback.agree }}</span>
+      </p>
+      <p>
+        <span>How?:&nbsp;{{ feedback.contacttype }}</span>
+      </p>
+      <p>
+        <span>Feedback:&nbsp;{{ feedback.message }}</span>
+      </p>      
+    </div>
+  </div>
+</div>

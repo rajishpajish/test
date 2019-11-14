@@ -1,0 +1,31 @@
+<mat-toolbar color="primary" dir="rtl">
+  <span><img src="/assets/images/logo.png" height=30 width=41></span>
+  <a mat-button routerLink="/home" routerLinkActive="active"><span class="fa fa-home fa-lg"></span> خانه</a>
+  <a mat-button routerLink="/aboutus" routerLinkActive="active"><span class="fa fa-info fa-lg"></span> درباره ما</a>
+  <a mat-button routerLink="/menu" routerLinkActive="active"><span class="fa fa-list fa-lg"></span> منو</a>
+  <a mat-button routerLink="/contactus" routerLinkActive="active"><span class="fa fa-address-card fa-lg"></span> تماس با ما</a>
+  <span class="flex-spacer"></span>
+  <a mat-button (click)="openLoginForm()"><span class="fa fa-sign-in fa-lg"></span> ورود</a>
+
+</mat-toolbar>
+
+<div class="container jumbotron"
+    fxLayout="row"
+    fxLayout.sm="column" 
+    fxLayout.xs="column" 
+    fxLayoutAlign.xs="start center"
+    fxLayoutAlign.sm="start center" 
+    fxLayoutAlign.gt-sm="center center" 
+    fxLayoutGap="10px" 
+    dir="rtl">
+
+  <div fxFlex fxFlex.gt-sm="25%">
+    <h1>هوش برتر</h1>
+    <p>نخستین پلتفرم جامع سرمایه گذاری - معاملاتی در ایران</p>
+
+  </div>
+  <div fxFlex fxFlex.gt-sm="20%">
+    <img src="/assets/images/header.jpg" alt="Logo">
+  </div>
+  <div fxFlex></div>
+</div>
