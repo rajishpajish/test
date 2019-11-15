@@ -45,7 +45,7 @@ dir="rtl">
     <form novalidate [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" [hidden]="feedback || spinnerVisibility" [@expand]>
       <p>
         <mat-form-field class="half-width"
-         dividerColor="{{(formErrors.firstname) ? 'warn' : 'primary'}}">
+         color="{{(formErrors.firstname) ? 'warn' : 'primary'}}">
           <input matInput formControlName="firstname" placeholder="نام" type="text" required>
           <mat-hint>
             <span [hidden]="!(formErrors.firstname)">
@@ -69,7 +69,7 @@ dir="rtl">
           </mat-hint>
         </mat-form-field>
         <mat-form-field class="half-width"
-         dividerColor="{{(formErrors.email) ? 'warn' : 'primary'}}">
+         color="{{(formErrors.email) ? 'warn' : 'primary'}}">
           <input matInput formControlName="email" placeholder="ایمیل" type="email" email required>
           <mat-hint>
             <span [hidden]="!(formErrors.email)">

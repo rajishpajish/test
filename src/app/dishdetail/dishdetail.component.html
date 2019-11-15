@@ -60,7 +60,7 @@ fxLayoutGap.xs="0">
     <form novalidate [formGroup]="commentForm" (ngSubmit)="onSubmit()">
       <p>
         <mat-form-field class="full-width"
-         dividerColor="{{(formErrors.author) ? 'warn' : 'primary'}}">
+         color="{{(formErrors.author) ? 'warn' : 'primary'}}">
           <input matInput formControlName="author" placeholder="Name" type="text" required>
           <mat-hint>
             <span [hidden]="!(formErrors.author)">
@@ -73,7 +73,7 @@ fxLayoutGap.xs="0">
       </p>
       <p>
         <mat-form-field class="full-width"
-         dividerColor="{{(formErrors.comment) ? 'warn' : 'primary'}}">
+         color="{{(formErrors.comment) ? 'warn' : 'primary'}}">
           <textarea matInput formControlName="comment" placeholder="Your Comment" rows="12" required></textarea>
           <mat-hint>
             <span [hidden]="!(formErrors.comment)">
