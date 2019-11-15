@@ -5,27 +5,27 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import {switchMap} from 'rxjs/operators';
 
-import { DishService } from '../services/dish.service';
+import { MarketService } from '../services/market.service';
 
-import { Dish } from '../shared/dish';
+import { Market } from '../shared/market';
 import { Comment } from '../shared/comment';
 
 import { visibility, expand } from '../animations/app.animation';
 
 @Component({
-  selector: 'app-dishdetail',
-  templateUrl: './dishdetail.component.html',
-  styleUrls: ['./dishdetail.component.scss'],
+  selector: 'app-marketdetail',
+  templateUrl: './marketdetail.component.html',
+  styleUrls: ['./marketdetail.component.scss'],
   animations: [
     visibility(),
     expand()
   ]
 })
-export class DishDetailComponent implements OnInit {
+export class MarketDetailComponent implements OnInit {
 
-  dish: Dish;
-  dishcopy = null; // Restangular object
-  dishIds: number[];
+  market: Market;
+  marketcopy = null; // Restangular object
+  marketIds: number[];
   prev: number;
   next: number;
 
@@ -53,7 +53,7 @@ export class DishDetailComponent implements OnInit {
     }
   };
   
-  constructor(private dishservice: DishService,
+  constructor(private marketservice: MarketService,
     private route: ActivatedRoute,
     private location: Location,
     private fb:FormBuilder,
@@ -63,18 +63,18 @@ export class DishDetailComponent implements OnInit {
 
   ngOnInit() {
 
-    this.dishservice.getDishIds().subscribe(dishIds => this.dishIds = dishIds);
+    this.marketservice.getMarketIds().subscribe(marketIds => this.marketIds = marketIds);
     this.route.params.pipe(
-      switchMap((params: Params) => { this.visibility = 'hidden'; return this.dishservice.getDish(+params['id']); }) // (+) converts string id to a number
-      ).subscribe(dish => { this.dish = dish; this.dishcopy = dish; this.setPrevNext(dish.id); this.visibility = 'shown'; }, 
+      switchMap((params: Params) => { this.visibility = 'hidden'; return this.marketservice.getMarket(+params['id']); }) // (+) converts string id to a number
+      ).subscribe(market => { this.market = market; this.marketcopy = market; this.setPrevNext(market.id); this.visibility = 'shown'; }, 
         errmess => this.errMess = <any>errmess);
     
   }
 
-  setPrevNext(dishId: number) {
-    let index = this.dishIds.indexOf(dishId);
-    this.prev = this.dishIds[(this.dishIds.length + index - 1)%this.dishIds.length];
-    this.next = this.dishIds[(this.dishIds.length + index + 1)%this.dishIds.length];
+  setPrevNext(marketId: number) {
+    let index = this.marketIds.indexOf(marketId);
+    this.prev = this.marketIds[(this.marketIds.length + index - 1)%this.marketIds.length];
+    this.next = this.marketIds[(this.marketIds.length + index + 1)%this.marketIds.length];
   }
 
   goBack(): void {
@@ -114,9 +114,9 @@ export class DishDetailComponent implements OnInit {
   onSubmit() {
     this.comment = this.commentForm.value;
     this.comment.date = new Date().toISOString();
-    this.dishcopy.comments.push(this.comment);
-    this.dishcopy.save()
-      .subscribe(dish => { this.dish = dish; console.log(this.dish); });
+    this.marketcopy.comments.push(this.comment);
+    this.marketcopy.save()
+      .subscribe(market => { this.market = market; console.log(this.market); });
     console.log(this.comment);
     this.comment = null;
     this.commentForm.reset({

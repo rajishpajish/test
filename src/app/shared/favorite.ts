@@ -1,10 +1,10 @@
-import { Dish } from './dish';
+import { Market } from './market';
 import { User } from './user';
 
 export class Favorite {
     _id: string;
     user: User;
-    dishes: Dish[];
+    markets: Market[];
     createdAt: string;
     updatedAt: string;
 }

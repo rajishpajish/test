@@ -1,10 +1,10 @@
-import { Dish } from './dish';
+import { Market } from './market';
 
-export const DISHES: Dish[] = [
+export const MARKETS: Market[] = [
     {
         id: 0,
-        name: 'Uthappizza',
-        image: '/assets/images/uthappizza.png',
+        name: 'plan1',
+        image: '/assets/images/plan1.png',
         category: 'mains',
         label: 'Hot',
         price: '4.99',
@@ -45,8 +45,8 @@ export const DISHES: Dish[] = [
     },
     {
         id: 1,
-        name: 'Zucchipakoda',
-        image: '/assets/images/zucchipakoda.png',
+        name: 'plan2',
+        image: '/assets/images/plan2.png',
         category: 'appetizer',
         label: '',
         price: '1.99',
@@ -87,8 +87,8 @@ export const DISHES: Dish[] = [
     },
     {
         id: 2,
-        name: 'Vadonut',
-        image: '/assets/images/vadonut.png',
+        name: 'plan3',
+        image: '/assets/images/plan3.png',
         category: 'appetizer',
         label: 'New',
         price: '1.99',
@@ -129,8 +129,8 @@ export const DISHES: Dish[] = [
     },
     {
         id: 3,
-        name: 'ElaiCheese Cake',
-        image: '/assets/images/elaicheesecake.png',
+        name: 'plan4',
+        image: '/assets/images/plan4.png',
         category: 'dessert',
         label: '',
         price: '2.99',

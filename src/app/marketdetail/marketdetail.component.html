@@ -6,35 +6,35 @@ fxLayoutAlign.gt-md="space-around center"
 fxLayoutGap="10px" 
 fxLayoutGap.xs="0">
 
-  <div fxFlex *ngIf="dish" [@visibility]="visibility">
+  <div fxFlex *ngIf="market" [@visibility]="visibility">
     <mat-card>
       <mat-card-header>
         <mat-card-title>
-          <h3>{{dish.name | uppercase}}</h3>
+          <h3>{{market.name | uppercase}}</h3>
         </mat-card-title>
       </mat-card-header>
-      <img mat-card-image src="{{BaseURL + dish.image}}" alt={{dish.name}}>
+      <img mat-card-image src="{{BaseURL + market.image}}" alt={{market.name}}>
       <mat-card-content>
-        <p>{{dish.description}}
+        <p>{{market.description}}
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button [routerLink]="['/dishdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
+        <button mat-button [routerLink]="['/marketdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
         <button mat-button (click)="goBack()">BACK</button>
         <button mat-button>LIKE</button>
         <button mat-button>SHARE</button>
         <span class="flex-spacer"></span>
-        <button mat-button [routerLink]="['/dishdetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
+        <button mat-button [routerLink]="['/marketdetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
       </mat-card-actions>
     </mat-card>
   </div>
 
-  <div fxFlex="40" *ngIf="dish" [@visibility]="visibility" [@expand]>
+  <div fxFlex="40" *ngIf="market" [@visibility]="visibility" [@expand]>
     <mat-list>
       <mat-list-item>
         <h2> Comments </h2>        
       </mat-list-item>
-      <mat-list-item *ngFor="let comment of dish.comments">
+      <mat-list-item *ngFor="let comment of market.comments">
         <p mat-line>
           <span> {{comment.comment}} </span>
         </p>
@@ -84,7 +84,7 @@ fxLayoutGap.xs="0">
       <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">Submit</button>
     </form>
   </div>
-  <div [hidden]="dish || errMess">
+  <div [hidden]="market || errMess">
     <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
   </div>
   <div *ngIf="errMess">

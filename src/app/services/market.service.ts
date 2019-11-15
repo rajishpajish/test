@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 
-import { Dish } from '../shared/dish';
+import { Market } from '../shared/market';
 import { baseURL } from '../shared/baseurl';
 import { ProcessHTTPMsgService } from './process-httpmsg.service';
 
@@ -13,28 +13,28 @@ import { of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
 @Injectable()
-export class DishService {
+export class MarketService {
 
   constructor(private restangular: Restangular,
               private processHTTPMsg: ProcessHTTPMsgService) { }
 
-  getDishes(): Observable<Dish[]> {
-    return this.restangular.all('dishes').getList();
+  getMarkets(): Observable<Market[]> {
+    return this.restangular.all('markets').getList();
   }
 
-  getDish(id: number): Observable<Dish> {
-    return  this.restangular.one('dishes',id).get();
+  getMarket(id: number): Observable<Market> {
+    return  this.restangular.one('markets',id).get();
   }
 
-  getFeaturedDish(): Observable<Dish> {
-    return this.restangular.all('dishes').getList({featured: true}).pipe(
-      map(dishes => dishes[0])
+  getFeaturedMarket(): Observable<Market> {
+    return this.restangular.all('markets').getList({featured: true}).pipe(
+      map(markets => markets[0])
     );
   }
 
-  getDishIds(): Observable<number[]> {
-    return this.getDishes().pipe(
-      map(dishes => {return dishes.map(dish => dish.id);} )
+  getMarketIds(): Observable<number[]> {
+    return this.getMarkets().pipe(
+      map(markets => {return markets.map(market => market.id);} )
       ,catchError(error => {return of(error);})
     );
   }

@@ -1,6 +1,6 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { Dish } from '../shared/dish';
-import { DishService } from '../services/dish.service';
+import { Market } from '../shared/market';
+import { MarketService } from '../services/market.service';
 import { flyInOut, expand } from '../animations/app.animation';
 
 @Component({
@@ -18,15 +18,15 @@ import { flyInOut, expand } from '../animations/app.animation';
 })
 export class MenuComponent implements OnInit {
 
-  dishes: Dish[];
+  markets: Market[];
   errMess: string;
 
-  constructor(private dishService: DishService,
+  constructor(private marketService: MarketService,
     @Inject('BaseURL') private BaseURL) { }
 
   ngOnInit() {
-    this.dishService.getDishes()
-    .subscribe(dishes => this.dishes = dishes,
+    this.marketService.getMarkets()
+    .subscribe(markets => this.markets = markets,
       errmess => this.errMess = <any>errmess);
   }
 

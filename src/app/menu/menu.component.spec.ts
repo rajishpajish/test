@@ -8,9 +8,9 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 import { MatGridListModule, MatProgressSpinnerModule } from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
-import { Dish } from '../shared/dish';
-import { DishService } from '../services/dish.service';
-import { DISHES } from '../shared/dishes';
+import { Market } from '../shared/market';
+import { MarketService } from '../services/market.service';
+import { MARKETS } from '../shared/markets';
 import { baseURL } from '../shared/baseurl';
 import { Observable } from 'rxjs';
 import { of } from 'rxjs'
@@ -23,9 +23,9 @@ describe('MenuComponent', () => {
 
   beforeEach(async(() => {
 
-    let dishServiceStub = {
-      getDishes: function(): Observable<Dish[]> {
-        return of(DISHES);
+    let marketServiceStub = {
+      getMarkets: function(): Observable<Market[]> {
+        return of(MARKETS);
       }
     };
 
@@ -37,13 +37,13 @@ describe('MenuComponent', () => {
       ],
       declarations: [ MenuComponent ],
       providers: [
-        { provide: DishService, useValue: dishServiceStub },
+        { provide: MarketService, useValue: marketServiceStub },
         { provide: 'BaseURL', useValue: baseURL },
       ]
     })
     .compileComponents();
 
-    let dishservice = TestBed.get(DishService);
+    let marketservice = TestBed.get(MarketService);
 
   }));
 
@@ -57,13 +57,13 @@ describe('MenuComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('dishes items should be 4', () => {
-    expect(component.dishes.length).toBe(4);
-    expect(component.dishes[1].name).toBe('Zucchipakoda');
-    expect(component.dishes[3].featured).toBeFalsy();
+  it('markets items should be 4', () => {
+    expect(component.markets.length).toBe(4);
+    expect(component.markets[1].name).toBe('plan2');
+    expect(component.markets[3].featured).toBeFalsy();
   });
 
-  it('should use dishes in the template', () => {
+  it('should use markets in the template', () => {
     fixture.detectChanges();
 
     let de: DebugElement;
@@ -71,7 +71,7 @@ describe('MenuComponent', () => {
     de = fixture.debugElement.query(By.css('h1'));
     el = de.nativeElement;
     
-    expect(el.textContent).toContain(DISHES[0].name.toUpperCase());
+    expect(el.textContent).toContain(MARKETS[0].name.toUpperCase());
 
   });
 

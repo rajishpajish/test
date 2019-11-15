@@ -5,25 +5,25 @@
      fxLayoutAlign.gt-mat="space-around center"
      fxLayoutGap="10px">
 
-  <mat-card *ngIf="dish" fxFlex [@expand]>
+  <mat-card *ngIf="market" fxFlex [@expand]>
     <mat-card-header>
       <div mat-card-avatar></div>
       <mat-card-title>
-        <h3>{{dish.name | uppercase}}</h3>
+        <h3>{{market.name | uppercase}}</h3>
       </mat-card-title>
     </mat-card-header>
-    <img mat-card-image src="{{BaseURL + dish.image}}" alt={{dish.name}}>
+    <img mat-card-image src="{{BaseURL + market.image}}" alt={{market.name}}>
     <mat-card-content>
-      <p>{{dish.description}}
+      <p>{{market.description}}
       </p>
     </mat-card-content>
   </mat-card>
-  <div [hidden]="dish || dishErrMess">
+  <div [hidden]="market || marketErrMess">
     <mat-spinner></mat-spinner><h4>لطف کمی صبر کنید ...</h4>
   </div>
-  <div *ngIf="dishErrMess">
+  <div *ngIf="marketErrMess">
     <h2>Error</h2>
-    <h4>{{dishErrMess}}</h4>
+    <h4>{{marketErrMess}}</h4>
   </div>
 
   <mat-card *ngIf="promotion" fxFlex [@expand]>

@@ -1,9 +1,9 @@
 {
-  "dishes": [
+  "markets": [
     {
       "id": 0,
-      "name": "Uthappizza",
-      "image": "images/uthappizza.png",
+      "name": "plan1",
+      "image": "images/plan1.png",
       "category": "mains",
       "label": "Hot",
       "price": "4.99",
@@ -42,7 +42,7 @@
         },
         {
           "author": "Zeeshan",
-          "comment": "Good dish",
+          "comment": "Good market",
           "rating": 5,
           "date": "2017-10-31T13:53:29.978Z"
         },
@@ -56,8 +56,8 @@
     },
     {
       "id": 1,
-      "name": "Zucchipakoda",
-      "image": "images/zucchipakoda.png",
+      "name": "plan2",
+      "image": "images/plan2.png",
       "category": "appetizer",
       "label": "",
       "price": "1.99",
@@ -98,8 +98,8 @@
     },
     {
       "id": 2,
-      "name": "Vadonut",
-      "image": "images/vadonut.png",
+      "name": "plan3",
+      "image": "images/plan3.png",
       "category": "appetizer",
       "label": "New",
       "price": "1.99",
@@ -140,8 +140,8 @@
     },
     {
       "id": 3,
-      "name": "ElaiCheese Cake",
-      "image": "images/elaicheesecake.png",
+      "name": "plan4",
+      "image": "images/plan4.png",
       "category": "dessert",
       "label": "",
       "price": "2.99",
@@ -200,7 +200,7 @@
       "designation": "Chief Epicurious Officer",
       "abbr": "CEO",
       "featured": "false",
-      "description": "Our CEO, Peter, credits his hardworking East Asian immigrant parents who undertook the arduous journey to the shores of America with the intention of giving their children the best future. His mother's wizardy in the kitchen whipping up the tastiest dishes with whatever is available inexpensively at the supermarket, was his first inspiration to create the fusion cuisines for which The Frying Pan became well known. He brings his zeal for fusion cuisines to this restaurant, pioneering cross-cultural culinary connections."
+      "description": "Our CEO, Peter, credits his hardworking East Asian immigrant parents who undertook the arduous journey to the shores of America with the intention of giving their children the best future. His mother's wizardy in the kitchen whipping up the tastiest market with whatever is available inexpensively at the supermarket, was his first inspiration to create the fusion cuisines for which The Frying Pan became well known. He brings his zeal for fusion cuisines to this restaurant, pioneering cross-cultural culinary connections."
     },
     {
       "id": 1,
@@ -218,7 +218,7 @@
       "designation": "Chief Taste Officer",
       "abbr": "CTO",
       "featured": "false",
-      "description": "Blessed with the most discerning gustatory sense, Agumbe, our CFO, personally ensures that every dish that we serve meets his exacting tastes. Our chefs dread the tongue lashing that ensues if their dish does not meet his exacting standards. He lives by his motto, You click only if you survive my lick."
+      "description": "Blessed with the most discerning gustatory sense, Agumbe, our CFO, personally ensures that every market that we serve meets his exacting tastes. Our chefs dread the tongue lashing that ensues if their market does not meet his exacting standards. He lives by his motto, You click only if you survive my lick."
     },
     {
       "id": 3,

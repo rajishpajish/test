@@ -1,7 +1,7 @@
 import { Component, OnInit, Inject } from '@angular/core';
 
-import { Dish } from '../shared/dish';
-import { DishService } from '../services/dish.service';
+import { Market } from '../shared/market';
+import { MarketService } from '../services/market.service';
 import { Promotion } from '../shared/promotion';
 import { PromotionService } from '../services/promotion.service';
 import { Leader } from '../shared/leader';
@@ -24,23 +24,23 @@ import { flyInOut, expand } from '../animations/app.animation';
 })
 export class HomeComponent implements OnInit {
 
-  dish: Dish;
+  market: Market;
   promotion: Promotion;
   leader: Leader;
 
-  dishErrMess: string;
+  marketErrMess: string;
   promotionErrMess: string;
   leaderErrMess: string;
 
-  constructor(private dishservice: DishService,
+  constructor(private marketservice: MarketService,
     private promotionservice: PromotionService,
     private leaderService: LeaderService,
     @Inject('BaseURL') private BaseURL) { }
 
   ngOnInit() {
-    this.dishservice.getFeaturedDish()
-    .subscribe(dish => this.dish = dish,
-      errmess => this.dishErrMess = <any>errmess);
+    this.marketservice.getFeaturedMarket()
+    .subscribe(market => this.market = market,
+      errmess => this.marketErrMess = <any>errmess);
     this.promotionservice.getFeaturedPromotion()
     .subscribe(promotion => this.promotion = promotion,
       errmess => this.promotionErrMess = <any>errmess);

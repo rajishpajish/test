@@ -26,8 +26,8 @@ export class FavoriteService {
       .pipe(catchError(error => this.processHTTPMsgService.handleError(error)));
   }
 
-  postFavorites(dishids: any) {
-    return this.http.post(baseURL + 'favorites/', dishids)
+  postFavorites(marketids: any) {
+    return this.http.post(baseURL + 'favorites/', marketids)
     .pipe(catchError(error => this.processHTTPMsgService.handleError(error)));
   }
 

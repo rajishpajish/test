@@ -13,14 +13,14 @@ import { RestangularModule, Restangular } from 'ngx-restangular';
 
 import { AppComponent } from './app.component';
 import { MenuComponent } from './menu/menu.component';
-import { DishDetailComponent } from './dishdetail/dishdetail.component';
+import { MarketDetailComponent } from './marketdetail/marketdetail.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
 
-import { DishService } from './services/dish.service';
+import { MarketService } from './services/market.service';
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
@@ -37,7 +37,7 @@ import { HighlightDirective } from './directives/highlight.directive';
   declarations: [
     AppComponent,
     MenuComponent,
-    DishDetailComponent,
+    MarketDetailComponent,
     HeaderComponent,
     FooterComponent,
     AboutComponent,
@@ -70,7 +70,7 @@ import { HighlightDirective } from './directives/highlight.directive';
     RestangularModule.forRoot(RestangularConfigFactory)
   ],
   providers: [
-    DishService,
+    MarketService,
     PromotionService,
     LeaderService,
     ProcessHTTPMsgService,
