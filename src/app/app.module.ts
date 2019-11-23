@@ -19,8 +19,12 @@ import { FooterComponent } from './footer/footer.component';
 import { AboutComponent } from './about/about.component';
 import { HomeComponent } from './home/home.component';
 import { ContactComponent } from './contact/contact.component';
+import { FlowComponent } from './flow/flow.component';
+
 
 import { MarketService } from './services/market.service';
+import { PlanService } from './services/plan.service';
+
 import { PromotionService } from './services/promotion.service';
 import { LeaderService } from './services/leader.service';
 import { ProcessHTTPMsgService } from './services/process-httpmsg.service';
@@ -32,11 +36,13 @@ import { LoginComponent } from './login/login.component';
 import { baseURL } from './shared/baseurl';
 import { RestangularConfigFactory } from './shared/restConfig';
 import { HighlightDirective } from './directives/highlight.directive';
+import { PlandetailComponent } from './plandetail/plandetail.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MenuComponent,
+    FlowComponent,
     MarketDetailComponent,
     HeaderComponent,
     FooterComponent,
@@ -44,7 +50,8 @@ import { HighlightDirective } from './directives/highlight.directive';
     HomeComponent,
     ContactComponent,
     LoginComponent,
-    HighlightDirective
+    HighlightDirective,
+    PlandetailComponent
   ],
   imports: [
     BrowserModule,
@@ -71,6 +78,7 @@ import { HighlightDirective } from './directives/highlight.directive';
   ],
   providers: [
     MarketService,
+    PlanService,
     PromotionService,
     LeaderService,
     ProcessHTTPMsgService,

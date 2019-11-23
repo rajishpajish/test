@@ -10,6 +10,7 @@ import {
   NgModule,
   ViewContainerRef
 } from '@angular/core';
+
 declare var $: any;
 
 @Component({

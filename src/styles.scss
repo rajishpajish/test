@@ -1,14 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
+//@import '~@angular/material/prebuilt-themes/deeppurple-amber.css';
 
 $lt-gray: #ddd;
-$background-dark: #512DA8;
-$background-light: #9575CD;
-$background-pale: #D1C4E9;
-$primary-color-dark:   #512DA8;
-$primary-color:        #673AB7;
-$primary-color-light:  #D1C4E9;
+$background-dark: rgb(153, 149, 212);
+$background-light: rgb(70, 155, 204);
+$background-pale: rgb(53, 158, 184);
+$primary-color-dark:   rgb(10, 56, 156);
+$primary-color:        rgb(46, 124, 160);
+$primary-color-light:  rgb(26, 6, 63);
 $primary-color-text:   #FFFFFF;
 $accent-color:         #FFC107;
 $primary-text-color:   #212121;

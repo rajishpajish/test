@@ -7,35 +7,35 @@ fxLayoutGap="10px"
 fxLayoutGap.xs="0"
 dir="rtl">
 
-  <div fxFlex *ngIf="market" [@visibility]="visibility">
+  <div fxFlex *ngIf="plan" [@visibility]="visibility">
     <mat-card>
       <mat-card-header>
         <mat-card-title>
-          <h3>{{market.name | uppercase}}</h3>
+          <h3>{{plan.name | uppercase}}</h3>
         </mat-card-title>
       </mat-card-header>
-      <img mat-card-image src="{{BaseURL + market.image}}" alt={{market.name}}>
+      <img mat-card-image src="{{BaseURL + plan.image}}" alt={{plan.name}}>
       <mat-card-content>
-        <p>{{market.description}}
+        <p>{{plan.description}}
         </p>
       </mat-card-content>
       <mat-card-actions>
-        <button mat-button [routerLink]="['/marketdetail', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
+        <button mat-button [routerLink]="['/plandetail', prev]"><span class="fa fa-chevron-left fa-lg"></span></button>
         <button mat-button (click)="goBack()">BACK</button>
         <button mat-button>LIKE</button>
         <button mat-button>SHARE</button>
         <span class="flex-spacer"></span>
-        <button mat-button [routerLink]="['/marketdetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
+        <button mat-button [routerLink]="['/plandetail', next]"><span class="fa fa-chevron-right fa-lg"></span></button>
       </mat-card-actions>
     </mat-card>
   </div>
 
-  <div fxFlex="40" *ngIf="market" [@visibility]="visibility" [@expand]>
+  <div fxFlex="40" *ngIf="plan" [@visibility]="visibility" [@expand]>
     <mat-list>
       <mat-list-item>
         <h2> توضیحات </h2>        
       </mat-list-item>
-      <mat-list-item *ngFor="let comment of market.comments">
+      <mat-list-item *ngFor="let comment of plan.comments">
         <p mat-line>
           <span> {{comment.comment}} </span>
         </p>
@@ -98,7 +98,7 @@ dir="rtl">
       <button type="submit" mat-button class="background-primary text-floral-white" [disabled]="commentForm.invalid">ارسال</button>
     </form>
   </div>
-  <div [hidden]="market || errMess">
+  <div [hidden]="plan || errMess">
     <mat-spinner></mat-spinner><h4>در حال بارگذاری ... </h4>
   </div>
   <div *ngIf="errMess">

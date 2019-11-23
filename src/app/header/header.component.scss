@@ -1,8 +1,8 @@
 $lt-gray: #ddd;
-$background-dark: #512DA8;
-$background-moredark: #4527A0;
-$background-light: #9575CD;
-$background-pale: #D1C4E9;
+$background-dark: rgb(46, 124, 160);
+$background-moredark:  rgb(46, 124, 166);
+$background-light: rgb(46, 124, 160);
+$background-pale: rgb(46, 124, 160);
 
 @mixin zero-margin($pad-up-down, $pad-left-right) {
     margin: 0px auto;

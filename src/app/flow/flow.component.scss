@@ -13,10 +13,10 @@ body {
     overflow: hidden;
     background: repeating-linear-gradient(
       45deg,
-      #eee,
-      #eee 10px,
-      #e5e5e5 10px,
-      #e5e5e5 20px
+      rgba(238, 238, 238, 0.315),
+      rgba(238, 238, 238, 0.459) 10px,
+      #e5e5e580 10px,
+      #e5e5e548 20px
     );
     border: 1px solid black;
   }
@@ -24,12 +24,12 @@ body {
   #exampleDiv {
     width: 2000px;
     height: 2000px;
-    background: white;
+    background: rgba(255, 255, 255, 0.452);
   }
   
   .flowchart-example-container {
     height: 200px;
-    border: 1px solid #BBB;
+    border: 1px solid rgba(187, 187, 187, 0.377);
     margin-bottom: 10px;
   }
   

@@ -3,27 +3,28 @@
      fxLayout.sm="column"
      fxLayout.xs="column"
      fxLayoutAlign.gt-mat="space-around center"
-     fxLayoutGap="10px">
-
-  <mat-card *ngIf="market" fxFlex [@expand]>
+     fxLayoutGap="10px"
+     dir="rtl">
+<!--
+  <mat-card *ngIf="plans" fxFlex [@expand]>
     <mat-card-header>
       <div mat-card-avatar></div>
       <mat-card-title>
-        <h3>{{market.name | uppercase}}</h3>
+        <h3>{{plan.name | uppercase}}</h3>
       </mat-card-title>
     </mat-card-header>
-    <img mat-card-image src="{{BaseURL + market.image}}" alt={{market.name}}>
+    <img mat-card-image src="{{BaseURL + plan.image}}" alt={{plan.name}}>
     <mat-card-content>
-      <p>{{market.description}}
+      <p>{{plan.description}}
       </p>
     </mat-card-content>
   </mat-card>
-  <div [hidden]="market || marketErrMess">
-    <mat-spinner></mat-spinner><h4>لطف کمی صبر کنید ...</h4>
+  <div [hidden]="plan || planErrMess">
+      <mat-spinner></mat-spinner><h4>لطفا کمی صبر کنید ...</h4>
   </div>
-  <div *ngIf="marketErrMess">
+  <div *ngIf="planErrMess">
     <h2>Error</h2>
-    <h4>{{marketErrMess}}</h4>
+    <h4>{{planErrMess}}</h4>
   </div>
 
   <mat-card *ngIf="promotion" fxFlex [@expand]>
@@ -40,8 +41,8 @@
     </mat-card-content>
   </mat-card>
   <div [hidden]="promotion || promotionErrMess">
-    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
-  </div>
+      <mat-spinner></mat-spinner><h4>لطفا کمی صبر کنید ...</h4>
+    </div>
   <div *ngIf="promotionErrMess">
     <h2>Error</h2>
     <h4>{{promotionErrMess}}</h4>
@@ -62,11 +63,45 @@
     </mat-card-content>
   </mat-card>
   <div [hidden]="leader || leaderErrMess">
-    <mat-spinner></mat-spinner><h4>Loading . . . Please Wait</h4>
-  </div>
+      <mat-spinner></mat-spinner><h4>لطفا کمی صبر کنید ...</h4>
+    </div>
   <div *ngIf="leaderErrMess">
     <h2>Error</h2>
     <h4>{{leaderErrMess}}</h4>
   </div>
 
+</div>
+-->
+
+
+
+<div class="container"
+fxLayout="column"
+fxLayoutGap="10px"
+dir="rtl">
+
+  <div fxFlex>
+    <div>
+    <h3>در تمامی این بازار ها همراه شما هستیم</h3>
+    <hr>
+    </div>
+  </div>
+
+  <div fxFlex *ngIf="plans" [@expand]>
+    <mat-grid-list cols="3" rowHeight="300px" >
+    <mat-grid-tile *ngFor="let plan of plans" [routerLink]="['/plandetail', plan.id]" appHighlight>
+      <img height="200px" src="{{BaseURL + plan.image}}" alt={{plan.name}}>
+      <mat-grid-tile-footer>
+        <h1 mat-line>{{plan.name | uppercase}}</h1>
+      </mat-grid-tile-footer>
+    </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+  <div [hidden]="plans || errMess">
+    <mat-spinner></mat-spinner><h4>در حال بارگذاری ... </h4>
+  </div>
+  <div *ngIf="errMess">
+    <h2>Error</h2>
+    <h4>{{errMess}}</h4>
+  </div>
 </div>
